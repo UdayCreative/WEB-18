@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Womens</title>
+    <style>
+        #navbar{
+            display:flex;
+            justify-content: space-around;
+            align-items:center;
+            background-color: rgb(38, 38, 67);
+            border-radius: 10px;
+            padding: 5px;
+            font-size:30px;
+            margin-bottom: 50px;
+        }
+        a{
+            text-decoration: none;
+            color:rgb(72, 160, 160);
+        }
+        #container{ 
+            margin-top:-20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            display: grid;
+            grid-template-columns: repeat(4,auto);
+            grid-template-rows: repeat(1,500px);
+            gap: 20px; 
+            text-align: center;     
+        }
+        #container>div{
+            margin-top: 20px;
+            margin-bottom: 20px;
+            box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;        
+            border-radius:10px;
+        }
+        
+        div>img{
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+        }
+        img+p{
+            margin-bottom:-30px;
+            margin-top: -5px;
+        }
+        p+p{
+            height: 50px; 
+            margin-top: -5px;  
+            margin-bottom: -10px;        
+        }
+        button{
+            padding: 2px;
+            border-radius:5px;
+        }
+        
+</style>
+</head>
+<body>
+    <div id="navbar">
+        <div><a href="index.html">Home</a></div>
+        <div><a href="mens.html">Mens</a></div>
+        <div><a href="womens.html">Womens</a></div>
+    </div>
+    <div id="container"></div>
+       
+</body>
+</html>
+<script>
+var bag=JSON.parse(localStorage.getItem("data"))||[];
+console.log(bag)
+  
+ bag.forEach(function(el){
+    
+   var box=document.createElement("div")
+   
+   var img=document.createElement("img")
+   img.setAttribute("src",el.imgurl);
+
+   var itemname=document.createElement("h4")
+   itemname.innerText=el.name;
+
+   var price=document.createElement("p")
+   price.innerText=el.price;
+
+   var strikedoffprice=document.createElement("p")
+   strikedoffprice.innerText=el.strikedoffprice;
+
+   var button=document.createElement("button")
+   button.innerText="Add To Cart"
+
+   box.append(img,itemname,price,strikedoffprice,button)
+
+   document.querySelector("#container").append(box)
+ }) 
+
+</script>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <style>
+        #mine{
+            box-shadow: rgba(0,0,0,0.24) 0px 3px 8px;
+            margin: auto;
+            height: 450px;
+            width: 40%;
+        }
+        #signup{
+            font-size: 20px;
+            margin-left: 75px;
+            height: 550px;
+            width: 40%;
+            border: 1px;
+            border-radius: 5px;
+        }
+        ::placeholder{
+            font-size: 15px;
+        }
+        h3{
+            color: rgb(0, 76, 255);
+            padding: 10px;
+            text-align: center;
+            font-size: 40px;
+        }
+        #submit{
+            padding: 5px;
+            margin: auto;
+            font-size: 20px;
+        }
+        #container{
+            display: flex;
+            justify-content:space-around;
+            background-color: rgb(109, 109, 220);
+            font-size: 30px;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: rgba(0,0,0,0.24) 0px 3px 8px;
+        }
+        #container>div>a{
+            color: white;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div><a href="Signup.html">Home</a></div>
+        <div><a href="login.html">Login</a></div>
+    </div>
+
+    <div id="mine">
+    <h3>SignUp</h3>
+    <form id="signup">
+        <label for="page">Email</label><br>
+        <input id="email" type="text" placeholder="Enter email" style="width: 440px; height: 20px;" /><br><br>
+        <label for="page">Phone Number</label><br>
+        <input id="no" type="text" placeholder="Enter Phone Number" style="width: 440px; height: 20px;" /><br><br>
+        <label for="page">Password</label><br>
+        <input id="password" type="text" placeholder="Enter Password" style="width: 440px; height: 20px;" /><br><br>
+        <button id="submit">SignUp</button>
+    </form>
+    </div>
+</body>
+</html>
+
+<script>
+    document.querySelector("button").addEventListener("click", myfunction)
+    var signupid = JSON.parse(localStorage.getItem("signids"))||[]
+
+    function myfunction(){
+        var email = document.querySelector("#email").value
+        var phone = document.querySelector("#no").value
+        var password = document.querySelector("#password").value
+
+        var signupObj = {
+            email:email,
+            phone : phoneNo,
+            password : Pass,
+        }
+
+        signupid.push(signupObj)
+        localStorage.setItem("signids",JSON.stringify(signupid))
+    
+    }
+</script>
